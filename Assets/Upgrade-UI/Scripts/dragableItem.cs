@@ -12,7 +12,9 @@ public class dragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnBeginDrag(PointerEventData eventData){
         //Debug.Log("begin drag");
-        Instantiate(gameObject,transform.position,transform.rotation,transform.parent);//make another version of for display
+        if(gameObject.transform.parent.gameObject.GetComponent<UpgradeSlot>() == null)
+            Instantiate(gameObject,transform.position,transform.rotation,transform.parent);//make another version of for display
+        
         parrentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         parentCanvasOfImageToMove = gameObject.transform.parent.gameObject.GetComponent<Canvas>();
