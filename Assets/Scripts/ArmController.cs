@@ -15,9 +15,7 @@ public class ArmController : MonoBehaviour
 
 
     // Tuning variables
-    public float growSpeed = 0.05f;
-
-
+    public float turnSpeed = 1f;
 
     void Start()
     {
@@ -29,26 +27,12 @@ public class ArmController : MonoBehaviour
 
     void Update()
     {
-        if (targetPos.position.x > 0f)
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, 180.0f / Mathf.PI * Mathf.Atan((targetPos.position.y - transform.position.y) / (targetPos.position.x - transform.position.x)));
-        }
-
-        else
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, 180f + 180.0f / Mathf.PI * Mathf.Atan((targetPos.position.y - transform.position.y) / (targetPos.position.x - transform.position.x)));
-        }
-
-
-        if (Vector3.Distance(transform.position, targetPos.position) - transform.localScale.x > 0.05 && Vector3.Distance(transform.position, targetPos.position) > transform.localScale.x)
-        {
-            transform.localScale = new Vector3(transform.localScale.x + growSpeed, 1f, 1f);
-        }
-        else if (Vector3.Distance(transform.position, targetPos.position) - transform.localScale.x < -0.05)
-        {
-            transform.localScale = new Vector3(transform.localScale.x - growSpeed, 1f, 1f);
-        }
-
+        // Track target
+        Vector3 relative = transform.InverseTransformPoint(target.transform.position);
+        float angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
+        transform.Rotate(0, 0, angle);
+        
+        // Attack target
     }
 
 }

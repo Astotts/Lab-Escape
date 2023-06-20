@@ -8,9 +8,8 @@ public class EnemyController : MonoBehaviour
     private CircleCollider2D mainCollider;
     private Rigidbody2D rbEnemy;
 
-    private float moveSpeed = 1f;
+    public float moveSpeed = 1f;
 
-    // Start is called before the first frame update
     void Start()
     {
         mainCollider = GetComponent<CircleCollider2D>();
@@ -19,9 +18,9 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Enemy AI
         if (transform.position.x < -2)
         {
             rbEnemy.velocity = new Vector2(moveSpeed, 0);
@@ -34,7 +33,18 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D touched)
     {
+        // Set effect on touch
         transform.position = new Vector3(0, 1, 0);
+    }
+
+    public void takeDamage(int amount)
+    {
+        // Public function to be called to take damage
+    }
+
+    public void setup()
+    {
+        // Public function for setting up specific enemy type
     }
 
 }
