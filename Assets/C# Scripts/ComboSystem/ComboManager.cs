@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class ComboManager
 {
-    private static const float defaultTimeToKill = 10f;
+    private const float defaultTimeToKill = 10f;
     private static float timeToKill = 10f;
     public static int combo = 0;
     public static int killForCombo = 1;
@@ -12,8 +12,8 @@ public static class ComboManager
 
     public static void ComboKill(){
         killCount++;
-        if(killCount = killForCombo){
-            killForCombo = Mathf.CeilToInt(Mathf.Pow(killForCombo, 1.5));
+        if(killCount == killForCombo){
+            killForCombo = Mathf.CeilToInt(Mathf.Pow(killForCombo, 1.5f));
             //ApplyComboBuff()
             killCount = 0;
             combo++;
