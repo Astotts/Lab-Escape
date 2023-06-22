@@ -6,11 +6,20 @@ using UnityEngine.UI;
 public class Saw : MonoBehaviour
 {
     public int level = 1;
-    public int damage;
+    public int damage = 1;
+
+    public float maxCD = 1f;
+    public float attackCD = 0f;
 
     void Update()
     {
         FollowMousePos();
+
+        //Adjust CoolDown
+        if (attackCD < maxCD)
+        {
+            attackCD += Time.deltaTime;
+        }
     }
 
     void FollowMousePos()
@@ -20,10 +29,14 @@ public class Saw : MonoBehaviour
         gameObject.transform.position = mousePos2D;
     }
 
-    void Damage()
-    {
-        
-    }
+    void OnTriggerStay2D(Collider2D col)    {        if (col.gameObject.tag == "Enemy")        {
+            //Check Weapon CoolDown
+            if (attackCD >= maxCD)
+            {
+                attackCD = 0f;
 
-    void OnTriggerEnter2D(Collider2D col)    {        if (col.gameObject.tag == "Enemy")        {            Debug.Log("SAW has collided with the Enemy");        }    }
+                col.GetComponent<EnemyData>().TakeDamage(damage);
+
+                Debug.Log("SAW has damaged the Enemy");
+            }        }    }
 }
