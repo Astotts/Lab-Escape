@@ -26,7 +26,7 @@ public class BiomassPoints : MonoBehaviour
         return true; 
     }
 
-    //USE NEGATIVE VALUES ONLY (USE FOR SHOP)
+    //USE NEGATIVE VALUES ONLY (USE FOR SHOPS)
     public void subtractPoints(int less)
     {
         if (validSubtractPoints(less))
@@ -42,7 +42,7 @@ public class BiomassPoints : MonoBehaviour
     }
     private bool validSubtractPoints(int less)
     {
-        if((this.points - less) <= 0)
+        if((this.points + less) < 0)
             return false;
         return true;
     }
