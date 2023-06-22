@@ -9,24 +9,16 @@ public class BiomassPoints : MonoBehaviour
     public int points;
     public Text currencyTxt;
 
-    //USE WITH POSITIVE VALUES ONLY (USE FOR GIVING PLAYER POINTS)
+    //USE WITH POSITIVE VALUES ONLY IN UNITY (USE FOR GIVING PLAYER POINTS)
     public void addPoints(int more)
     {
-        if (validAddPoints(more))
-        {
-            this.points += more;
-            this.currencyTxt.text = this.points.ToString() + "<color=lime>$</color>";
-            //Could add a sound here meaning that points increased
-        }
-    }
-    private bool validAddPoints(int more)
-    {
-        if(more < 0)
-            return false;
-        return true; 
+        this.points += more;
+        this.currencyTxt.text = this.points.ToString() + "<color=lime>$</color>";
+        //Could add a sound here meaning that points increased
+        
     }
 
-    //USE NEGATIVE VALUES ONLY (USE FOR SHOPS)
+    //USE NEGATIVE VALUES ONLY IN UNITY (USE FOR SHOPS)
     public void subtractPoints(int less)
     {
         if (validSubtractPoints(less))
