@@ -15,23 +15,25 @@ public class ArmController : MonoBehaviour
 
 
     // Tuning variables
-    public float turnSpeed = 1f;
+    public Vector2 direction;
+    private float rotateAmount;
+    public float rotateSpeed = 400f;
 
     void Start()
     {
         // Find components
         targetPos = target.GetComponent<Transform>();
         rbArm = GetComponent<Rigidbody2D>();
-        
+
     }
 
     void Update()
     {
-        // Track target
-        Vector3 relative = transform.InverseTransformPoint(target.transform.position);
-        float angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
-        transform.Rotate(0, 0, angle);
-        
+        direction = this.transform.position - targetPos.transform.position;
+        direction = direction.normalized;
+        rotateAmount = Vector3.Cross(direction, transform.up).z;
+        rbArm.angularVelocity = rotateAmount * rotateSpeed;
+
         // Attack target
     }
 
