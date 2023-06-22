@@ -13,8 +13,6 @@ public class Saw : MonoBehaviour
 
     void Update()
     {
-        level = GetComponent<WeaponController>().weaponLevel;
-
         FollowMousePos();
 
         //Adjust CoolDown
@@ -41,4 +39,20 @@ public class Saw : MonoBehaviour
 
                 Debug.Log("SAW has damaged the Enemy");
             }        }    }
+    //This should only be called once immediately after the player levels up an arm
+    public void LevelUpdate()
+    {
+        int weaponlevel = GetComponent<WeaponController>().weaponLevel;
+        if (level != weaponlevel)
+        {
+            level = weaponlevel;
+        }
+        
+        //Increased size and damage
+        if (level == 2)
+        {
+            this.transform.localScale = new Vector3(3, 3, 1);
+            damage = 2;
+        }
+    }
 }

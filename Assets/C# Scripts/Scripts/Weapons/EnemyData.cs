@@ -14,9 +14,29 @@ public class EnemyData : MonoBehaviour
         hp = MaxHP;
     }
 
+    void Update()
+    {
+        if(hp <= 0)
+        {
+            Death();
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         hp = hp - damage;
-        Debug.Log("Enemy was Hit!");
+        Debug.Log("Enemy is at " + hp + "HP");
+    }
+
+    public void Death()
+    {
+        //====================
+        //TEMPORARY CODE
+        Destroy(gameObject);
+        //====================
+
+        //Remove the enemy
+        //Gift coins
+        //Everything else
     }
 }
