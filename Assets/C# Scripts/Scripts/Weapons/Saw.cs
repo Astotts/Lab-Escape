@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Saw : MonoBehaviour
 {
-    public int level = 1;
+    public int level;
     public int damage = 1;
 
     public float maxCD = 1f;
@@ -13,6 +13,8 @@ public class Saw : MonoBehaviour
 
     void Update()
     {
+        level = GetComponent<WeaponController>().weaponLevel;
+
         FollowMousePos();
 
         //Adjust CoolDown
