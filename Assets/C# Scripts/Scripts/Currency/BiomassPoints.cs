@@ -7,28 +7,43 @@ public class BiomassPoints : MonoBehaviour
 {   
     
     public int points;
+    public Text currencyTxt;
 
-    [SerializeField] 
-    private Text currencyTxt; 
-
-    public bool addPoints(int more)
+    //USE WITH POSITIVE VALUES ONLY (USE FOR GIVING PLAYER POINTS)
+    public void addPoints(int more)
+    {
+        if (validAddPoints(more))
+        {
+            this.points += more;
+            this.currencyTxt.text = this.points.ToString() + "<color=lime>$</color>";
+            //Could add a sound here meaning that points increased
+        }
+    }
+    private bool validAddPoints(int more)
     {
         if(more < 0)
             return false;
-    
-        this.points += more;
-        this.currencyTxt.text = this.points.ToString() + "<color=lime>$</color>";
         return true; 
     }
 
-    public bool subtractPoints(int less)
+    //USE NEGATIVE VALUES ONLY (USE FOR SHOP)
+    public void subtractPoints(int less)
+    {
+        if (validSubtractPoints(less))
+        {
+            this.points += less;
+            this.currencyTxt.text = this.points.ToString() + "<color=lime>$</color>";
+            //Add sound code here meaning that purchase was valid
+        }
+        else
+        {
+            //Add sound code here meaning that purchase was invalid
+        }
+    }
+    private bool validSubtractPoints(int less)
     {
         if((this.points - less) <= 0)
-        {
             return false;
-        }
-        this.points -= less;
-        currencyTxt.text = this.points.ToString() + "<color=lime>$</color>";
         return true;
     }
 
