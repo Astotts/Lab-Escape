@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ComboManager
+public class ComboManager : MonoBehaviour
 {
     private const float defaultTimeToKill = 10f;
-    private static float timeToKill = 10f;
-    public static int combo = 0;
-    public static int killForCombo = 1;
-    public static int killCount = 0;
+    private float timeToKill = 10f;
+    public int combo = 0;
+    public int killForCombo = 1;
+    public int killCount = 0;
 
-    public static void ComboKill(){
+    private void Update(){
+        timeToKill -= Time.deltaTime;
+        timeToKill = Mathf.Clamp(defaultTimeToKill, 0f);
+        if(timeToKill <= 0f){
+            ComboEnd();
+        }
+    }
+
+    public void ComboKill(){
         killCount++;
         if(killCount == killForCombo){
             killForCombo = Mathf.CeilToInt(Mathf.Pow(killForCombo, 1.5f));
@@ -21,7 +29,7 @@ public static class ComboManager
         }
     }
 
-    public static void ComboEnd(){
+    public void ComboEnd(){
         timeToKill = 7.5f;
         combo = 0;
         killForCombo = 1;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 232fe1e2c1b090447b3efd0cdc34cf31
+guid: 228371a1370c6fc40bec939b7c5e4799
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,28 +94,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: arm
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 374
-      width: 207
-      height: 65
-    spriteID: 3f9711d496e873845a4e2d735145dd9d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 374}
-    spritePosition: {x: 12, y: 214}
-  - name: body
+  - name: outlines Copy
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -124,9 +103,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 120
-      height: 362
-    spriteID: 12b1de70b21f5074db37881860f11775
+      width: 588
+      height: 221
+    spriteID: 86bd66d0abc45384490321b0d048cec5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -134,20 +113,20 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 104, y: 19}
-  - name: leg
+    uvTransform: {x: 4, y: -19}
+    spritePosition: {x: 23, y: 23}
+  - name: saw outline
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 132
+      x: 600
       y: 4
-      width: 75
-      height: 162
-    spriteID: 3646a78d0b90f8e4cb0d84fdb22e2e14
+      width: 240
+      height: 243
+    spriteID: c53a5950529c46e4799d74394f6c09ed
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -155,8 +134,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 132, y: 4}
-    spritePosition: {x: 125, y: 19}
+    uvTransform: {x: 600, y: 4}
+    spritePosition: {x: 738, y: 12}
   characterData:
     bones: []
     parts: []
@@ -191,71 +170,61 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: ARM
+  - name: handle
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: a376aff5becd49449a4303390eb1f3cb
+    spriteID: 00f141a461f0d1242b91bc8dc3a3f187
     layerID: 0
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
     isVisible: 1
-  - name: arm
-    spriteName: arm
+  - name: outlines Copy
+    spriteName: outlines Copy
     isGroup: 0
-    parentIndex: 0
-    spriteID: 3f9711d496e873845a4e2d735145dd9d
-    layerID: 386853116
-    mosaicPosition: {x: 4, y: 374}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: BODY
-    spriteName: 
-    isGroup: 1
     parentIndex: -1
-    spriteID: 7600f2846a04e8c4292c9825bd71a0b6
-    layerID: 735801314
-    mosaicPosition: {x: 0, y: 0}
-    flatten: 0
-    isImported: 0
-    isVisible: 1
-  - name: body
-    spriteName: body
-    isGroup: 0
-    parentIndex: 2
-    spriteID: 12b1de70b21f5074db37881860f11775
-    layerID: -911353822
+    spriteID: 86bd66d0abc45384490321b0d048cec5
+    layerID: 1156329918
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: LEG
+  - name: saw
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 92f4a96e2768c9c45bf34e26180eb505
-    layerID: 1596708014
+    spriteID: 9606942019b9b0c48bd6bb34418676c7
+    layerID: 696030005
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
     isVisible: 1
-  - name: leg
-    spriteName: leg
+  - name: saw outline
+    spriteName: saw outline
     isGroup: 0
-    parentIndex: 4
-    spriteID: 3646a78d0b90f8e4cb0d84fdb22e2e14
-    layerID: -1273339058
-    mosaicPosition: {x: 132, y: 4}
+    parentIndex: -1
+    spriteID: c53a5950529c46e4799d74394f6c09ed
+    layerID: 240100789
+    mosaicPosition: {x: 600, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: saw original
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4ff27a02afdf67f43a21ae722ad39c02
+    layerID: -2105543730
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: Layer 1
     spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: 493db3d6831571a489de358989df902b
+    spriteID: a5da9e565949a804eb6a9991adda0562
     layerID: -7500616
     mosaicPosition: {x: 0, y: 0}
     flatten: 0

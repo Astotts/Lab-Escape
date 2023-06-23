@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 1a92878ff2fd0744096481282fd70916, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 1a92878ff2fd0744096481282fd70916, type: 3}
       propertyPath: m_LocalScale.x
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4953554196496753020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b5d603e24f5b9488691310dd4a39a2, type: 3}
+  m_Script: {fileID: 11500000, guid: b31576fa08218e64fb8737866c302cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   death: {fileID: 8300000, guid: 06653354138f9f04db4a36bc03596c46, type: 3}
