@@ -54,7 +54,7 @@ public class Tentacle : MonoBehaviour
         else{
             tentacleRB.bodyType = RigidbodyType2D.Dynamic;
             //Debug.Log(tentacleRB.bodyType);
-            tentacleSegPos[tentacleSegPos.Length - 1].position = Vector3.MoveTowards(tentacleSegPos[tentacleSegPos.Length - 1].position, endPos.position, speed * Time.deltaTime);
+            //tentacleSegPos[tentacleSegPos.Length - 1].position = Vector3.MoveTowards(tentacleSegPos[tentacleSegPos.Length - 1].position, endPos.position, speed * Time.deltaTime);
             for(int i = 0; i < tentacleSegPos.Length; i++){
                 lineSegPos[i] = tentacleSegPos[i].position;
             }

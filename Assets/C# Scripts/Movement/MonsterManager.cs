@@ -6,6 +6,7 @@ public class MonsterManager : MonoBehaviour
 {
     public float moveSpeed;
     [SerializeField] private Rigidbody2D bodyRB;
+    private float elapsed = 0f;
 
     // Update is called once per frame
     void Update()
@@ -16,15 +17,15 @@ public class MonsterManager : MonoBehaviour
                 transform.position = new Vector3(0f,-5f,0f);
             }
         }
-        if(Input.GetButtonDown("Cancel")){
-            GameManager.active = !GameManager.active;
-            bodyRB.simulated = !GameManager.active;
-        }
-            
-        
-    }
+        bodyRB.simulated = !GameManager.active;
 
-    void CamResize(){
-        Camera.main.orthographicSize = 5f;
+        if(GameManager.active){
+            elapsed += Time.deltaTime / 2f;
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, Mathf.Clamp(2f / Mathf.Clamp(Mathf.Abs(transform.position.y), 1f, 5f), 1f, 3f), elapsed);
+        }
+        else{
+            elapsed = 0f;
+        }
+        
     }
 }

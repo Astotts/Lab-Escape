@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class GameManager
 {
-    public static bool active = true;
+    public static bool active;
 }
