@@ -10,7 +10,7 @@ public class ArmController : MonoBehaviour
     private Vector3 armPos;
 
     // Offboard components
-    public GameObject target;
+    private GameObject target;
     private Transform targetPos;
 
 
@@ -34,7 +34,6 @@ public class ArmController : MonoBehaviour
     void Start()
     {
         // Find components
-        targetPos = target.GetComponent<Transform>();
         rbArm = GetComponent<Rigidbody2D>();
         armSound = GetComponent<AudioSource>();
 
@@ -45,14 +44,15 @@ public class ArmController : MonoBehaviour
 
         if (target)
         {
-            float desiredAngle = Mathf.Atan2(target.transform.position.y, target.transform.position.x);
-            rotateAmount = Mathf.DeltaAngle(transform.rotation.z, desiredAngle);
-            transform.Rotate(0f, 0f, rotateAmount * rotateSpeed, 0f);
+            float desiredAngle = Mathf.Atan2(target.transform.position.y, target.transform.position.x) * Mathf.Rad2Deg;
+            rotateAmount = Mathf.DeltaAngle(transform.rotation.z, desiredAngle) * Mathf.Deg2Rad; 
+            transform.Rotate(0f, 0f, Random.Range(-1f, 1f) + rotateAmount * rotateSpeed, 0f);
         }
 
         else if (GameObject.FindWithTag("Enemy") != null)
         {
             target = GameObject.FindWithTag("Enemy");
+            targetPos = target.GetComponent<Transform>();
         }
        
 
@@ -62,7 +62,7 @@ public class ArmController : MonoBehaviour
         {
             armSound.PlayOneShot(shootSound, 0.1f);
             isShooting = true;
-            attackCooldown = Time.time + attackLength;
+            attackCooldown = Time.time + attackLength + Random.Range(0f, 0.1f);
             Instantiate(bulletPrefab, armLengthOffset.position, transform.rotation);
         }
 
