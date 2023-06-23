@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BiomassPoints : MonoBehaviour
 {   
     
     public int points;
 
-    [SerializeField] 
-    private Text currencyTxt; 
+    [SerializeField] private TMP_Text currencyTxt; 
 
     public bool addPoints(int more)
     {
@@ -17,7 +17,7 @@ public class BiomassPoints : MonoBehaviour
             return false;
     
         this.points += more;
-        this.currencyTxt.text = this.points.ToString() + "<color=lime>$</color>";
+        this.currencyTxt.text = this.points.ToString();
         return true; 
     }
 
@@ -28,7 +28,7 @@ public class BiomassPoints : MonoBehaviour
             return false;
         }
         this.points -= less;
-        currencyTxt.text = this.points.ToString() + "<color=lime>$</color>";
+        currencyTxt.text = this.points.ToString();
         return true;
     }
 
@@ -36,7 +36,7 @@ public class BiomassPoints : MonoBehaviour
     void Start()
     {
         this.points = 100;
-        this.currencyTxt.text = this.points.ToString() + "<color=lime>$</color>";
+        this.currencyTxt.text = this.points.ToString();
     }
 
     // Update is called once per frame
