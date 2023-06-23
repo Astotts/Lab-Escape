@@ -1,32 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Saw : MonoBehaviour
+public class FlameThrower : MonoBehaviour
 {
     public int level;
     public int damage = 1;
 
-    public float maxCD = 1f;
+    public float maxCD = 0.5f;
     public float attackCD = 0f;
 
     void Update()
     {
-        FollowMousePos();
-
         //Adjust CoolDown
         if (attackCD < maxCD)
         {
             attackCD += Time.deltaTime;
         }
-    }
-
-    void FollowMousePos()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-        gameObject.transform.position = mousePos2D;
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -40,7 +30,7 @@ public class Saw : MonoBehaviour
 
                 col.GetComponent<EnemyData>().TakeDamage(damage);
 
-                Debug.Log("SAW has damaged the Enemy");
+                Debug.Log("FlameThrower has damaged the Enemy");
             }
         }
     }
@@ -53,18 +43,11 @@ public class Saw : MonoBehaviour
         {
             level = weaponlevel;
         }
-        
-        //Increased size and damage
+
+        //Increased FireRate
         if (level == 2)
         {
-            this.transform.localScale = new Vector3(3, 3, 1);
-            damage = 2;
-        }
-        //Increased size and damage
-        if (level == 3)
-        {
-            this.transform.localScale = new Vector3(4, 4, 1);
-            damage = 3;
+            maxCD = 0.3f;
         }
     }
 }
