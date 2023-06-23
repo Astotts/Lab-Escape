@@ -25,7 +25,7 @@ public class EnemyData : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp = hp - damage;
-        Debug.Log("Enemy is at " + hp + "HP");
+        Debug.Log("Enemy is at " + hp + " HP");
     }
 
     public void Death()
