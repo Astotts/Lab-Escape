@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour
 {
-    public int health, maxHealth = 4;
+    public int health = 4, maxHealth = 4;
 
     [SerializeField] public AudioClip death;
     [SerializeField] private AudioSource enemyAudio;
@@ -16,6 +16,12 @@ public class DamageController : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+    }
+
+    void Awake(){
+        biomassPoints = FindObjectOfType<BiomassPoints>();
+        comboManager = FindObjectOfType<ComboManager>();
+        TakeDamage(4);
     }
 
     public void TakeDamage(int damage)

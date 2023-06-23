@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : DamageController
 {
     // SUPER IMPORTANT NOTE: ENEMIES INHERIT FROM DAMAGE CONTROLLER ^
-    [SerializeField] private CircleCollider2D mainCollider;
+    [SerializeField] private Collider2D mainCollider;
     [SerializeField] private Rigidbody2D rbEnemy;
     public float moveSpeed = 1f;
 
@@ -29,7 +29,7 @@ public class EnemyController : DamageController
                 rbEnemy.velocity = new Vector2(-moveSpeed, 0);
             }
         }
-        else{
+        else if(health <= 0){
             rbEnemy.gravityScale = 1f;
 
             if (transform.position.x < 0)
