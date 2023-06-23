@@ -1,30 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public static class ComboManager
+public class ComboManager : MonoBehaviour
 {
     private const float defaultTimeToKill = 10f;
-    private static float timeToKill = 10f;
-    public static int combo = 0;
-    public static int killForCombo = 1;
-    public static int killCount = 0;
+    private float timeToKill = 10f;
+    private int combo = 0;
+    private int killForCombo = 1;
+    private int killCount = 0;
 
-    public static void ComboKill(){
-        killCount++;
-        if(killCount == killForCombo){
-            killForCombo = Mathf.CeilToInt(Mathf.Pow(killForCombo, 1.5f));
-            //ApplyComboBuff()
-            killCount = 0;
-            combo++;
-            timeToKill = defaultTimeToKill - (0.5f * combo);
+    [SerializeField] private Slider slider;
+    [SerializeField] private TMP_Text comboTxt;
+
+    private void Update(){
+        timeToKill -= Time.deltaTime;
+        timeToKill = Mathf.Clamp(timeToKill, 0f, defaultTimeToKill);
+        slider.value = timeToKill;
+        if(timeToKill <= 0f){
+            ComboEnd();
         }
     }
 
-    public static void ComboEnd(){
+    public void ComboKill(){
+        killCount++;
+        if(killCount >= killForCombo){
+            killForCombo *= 2;
+            Debug.Log(killForCombo);
+            //ApplyComboBuff()
+            killCount = 0;
+            combo++;
+            comboTxt.text = (combo + "x");
+            timeToKill = defaultTimeToKill - (0.5f * combo);
+            slider.maxValue = timeToKill; 
+            slider.value = timeToKill;
+        }
+    }
+
+    public void ComboEnd(){
         timeToKill = 7.5f;
         combo = 0;
         killForCombo = 1;
         killCount = 0;
+        comboTxt.text = (combo + "x");
     }
 }

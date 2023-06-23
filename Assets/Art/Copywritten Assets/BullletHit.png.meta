@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bfb8bf22101cdcb4f8240c6e6c9a28af
+guid: cbc114d8d005a554db4b717837ae8d0d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -65,14 +65,14 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,173 +106,81 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Creature_0
+      name: BullletHit_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 336
-        width: 64
-        height: 64
+        x: 0
+        y: 0
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50c03b009dcf59742b784b6025d2a468
-      internalID: -680434608
+      spriteID: 725faaf12ea01a04687bdde764387243
+      internalID: -1685880287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Creature_1
+      name: BullletHit_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 352
-        width: 48
-        height: 48
+        x: 20
+        y: 0
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9ac9d0dd0393b84c9b7e781c343087d
-      internalID: 476870692
+      spriteID: 8181084d107004447a027013e0cadde0
+      internalID: -592133420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Creature_2
+      name: BullletHit_2
       rect:
         serializedVersion: 2
-        x: 160
-        y: 368
-        width: 32
-        height: 32
+        x: 40
+        y: 0
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69e5f1167173f9b4186229e5255ddb9c
-      internalID: 378599478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Creature_3
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 307
-        width: 46
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93ce3931df3124c48b556fb10c50ed07
-      internalID: -1506626880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Creature_4
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 306
-        width: 36
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23d11a4a503a9a6449b341b557c1bc97
-      internalID: 767761310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Creature_5
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 317
-        width: 25
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2aa4fa2aafe01f4aa59ed6e67b3ce00
-      internalID: 1393214418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Creature_6
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 268
-        width: 96
-        height: 14
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 034185c7e82f79a4d82a8f3d475e017c
-      internalID: -591030885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Creature_7
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 12
-        width: 213
-        height: 201
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f07d2b1a65063e346add37dccc697bfa
-      internalID: -1851988345
+      spriteID: 0a84cd237f70a8a47963f919514a0e67
+      internalID: 1883064537
       vertices: []
       indices: 
       edges: []
@@ -288,14 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Creature_0: -680434608
-      Creature_1: 476870692
-      Creature_2: 378599478
-      Creature_3: -1506626880
-      Creature_4: 767761310
-      Creature_5: 1393214418
-      Creature_6: -591030885
-      Creature_7: -1851988345
+      BullletHit_0: -1685880287
+      BullletHit_1: -592133420
+      BullletHit_2: 1883064537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

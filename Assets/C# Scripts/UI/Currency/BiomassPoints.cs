@@ -11,7 +11,7 @@ public class BiomassPoints : MonoBehaviour
 
     [SerializeField] private TMP_Text currencyTxt; 
 
-    public bool addPoints(int more)
+    public bool AddPoints(int more)
     {
         if(more < 0)
             return false;
@@ -21,7 +21,7 @@ public class BiomassPoints : MonoBehaviour
         return true; 
     }
 
-    public bool subtractPoints(int less)
+    public bool SubtractPoints(int less)
     {
         if((this.points - less) <= 0)
         {
