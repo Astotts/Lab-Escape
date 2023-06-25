@@ -15,12 +15,37 @@ public class Saw : MonoBehaviour
     {
         LevelUpdate();
 
-        FollowMousePos();
-
         //Adjust CoolDown
         if (attackCD < maxCD)
         {
             attackCD += Time.deltaTime;
+        }
+        if (attackCD >= maxCD)
+        {
+            attackCD = 0;
+            DamageEnemies();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        enemyList.Add(col.gameObject);
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+        enemyList.Remove(col.gameObject);
+    }
+
+    void DamageEnemies()
+    {
+        foreach (GameObject enemy in enemyList)
+        {
+            if (enemy == null)
+            {
+                enemyList.Remove(enemy.gameObject);
+            }
+            enemy.GetComponent<EnemyData>().TakeDamage(damage);
+            Debug.Log("Saw has damaged the Enemy");
         }
     }
 
@@ -29,22 +54,6 @@ public class Saw : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
         gameObject.transform.position = mousePos2D;
-    }
-
-    void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Enemy")
-        {
-            //Check Weapon CoolDown
-            if (attackCD >= maxCD)
-            {
-                attackCD = 0f;
-
-                col.GetComponent<EnemyData>().TakeDamage(damage);
-
-                Debug.Log("SAW has damaged the Enemy");
-            }
-        }
     }
 
     //This should only be called once immediately after the player levels up an arm

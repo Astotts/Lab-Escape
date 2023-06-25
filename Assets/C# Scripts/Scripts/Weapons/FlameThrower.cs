@@ -19,21 +19,32 @@ public class FlameThrower : MonoBehaviour
         {
             attackCD += Time.deltaTime;
         }
+        if (attackCD >= maxCD)
+        {
+            attackCD = 0;
+            DamageEnemies();
+        }
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy")
+        enemyList.Add(col.gameObject);
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+        enemyList.Remove(col.gameObject);
+    }
+
+    void DamageEnemies()
+    {
+        foreach (GameObject enemy in enemyList)
         {
-            //Check Weapon CoolDown
-            if (attackCD >= maxCD)
+            if (enemy == null)
             {
-                attackCD = 0f;
-
-                col.GetComponent<EnemyData>().TakeDamage(damage);
-
-                Debug.Log("FlameThrower has damaged the Enemy");
+                enemyList.Remove(enemy.gameObject);
             }
+            enemy.GetComponent<EnemyData>().TakeDamage(damage);
+            Debug.Log("Flamethrower has damaged the Enemy");
         }
     }
 
