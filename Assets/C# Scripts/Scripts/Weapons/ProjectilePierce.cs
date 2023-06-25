@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spike : MonoBehaviour
+public class ProjectilePierce : MonoBehaviour
 {
     public int damage = 5;
     public float lifeTime = 5f;
@@ -30,7 +30,7 @@ public class Spike : MonoBehaviour
         {
             col.GetComponent<EnemyData>().TakeDamage(damage);
 
-            Debug.Log("Spike has damaged the Enemy");
+            Debug.Log( this.name + " has damaged the Enemy");
         }
     }
 }
