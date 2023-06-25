@@ -11,6 +11,8 @@ public class Saw : MonoBehaviour
     public float maxCD = 1f;
     public float attackCD = 0f;
 
+    public List<GameObject> enemyList = new List<GameObject>();
+
     void Update()
     {
         LevelUpdate();

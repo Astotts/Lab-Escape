@@ -10,6 +10,8 @@ public class FlameThrower : MonoBehaviour
     public float maxCD = 0.5f;
     public float attackCD = 0f;
 
+    public List<GameObject> enemyList = new List<GameObject>();
+
     void Update()
     {
         LevelUpdate();
