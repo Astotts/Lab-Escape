@@ -61,6 +61,7 @@ public class Saw : MonoBehaviour
         {
             this.transform.localScale = new Vector3(2, 2, 1);
             maxCD = 1f;
+            damage = 1;
         }
         //Increased size and damage
         if (level == 2)

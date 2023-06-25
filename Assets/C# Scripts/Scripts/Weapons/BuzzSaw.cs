@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlameThrower : MonoBehaviour
+public class BuzzSaw : MonoBehaviour
 {
     public int level;
-    public int damage = 1;
+    public int damage = 2;
 
-    public float maxCD = 0.5f;
+    public float maxCD = 1f;
     public float attackCD = 0f;
 
     void Update()
@@ -32,7 +32,7 @@ public class FlameThrower : MonoBehaviour
 
                 col.GetComponent<EnemyData>().TakeDamage(damage);
 
-                Debug.Log("FlameThrower has damaged the Enemy");
+                Debug.Log("BuzzSaw has damaged the Enemy");
             }
         }
     }
@@ -49,17 +49,18 @@ public class FlameThrower : MonoBehaviour
         //Here for reset
         if (level == 1)
         {
-            maxCD = 0.5f;
+            maxCD = 1f;
+            damage = 2;
         }
-        //Increased FireRate
+        //Increased damage
         if (level == 2)
         {
-            maxCD = 0.3f;
+            damage = 4;
         }
-        //Increased Damage
+        //Increased FireRate
         if (level == 3)
         {
-            damage = 2;
+            maxCD = 0.6f;
         }
     }
 }
