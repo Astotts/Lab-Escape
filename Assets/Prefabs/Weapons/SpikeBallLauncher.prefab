@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7536377862565118610}
   - component: {fileID: 4917952478644253044}
   - component: {fileID: 7639552602646217225}
+  - component: {fileID: 3237194595867986424}
   m_Layer: 0
   m_Name: SpikeBallLauncher
   m_TagString: Untagged
@@ -186,5 +187,19 @@ MonoBehaviour:
   maxCD: 4
   attackCD: 0
   proj1: {fileID: 3974075681927935575, guid: 351c2270fec74994bafb27f084266af1, type: 3}
+  proj2: {fileID: 7413944393926440451, guid: a521f352619fd2a4bb842445de791848, type: 3}
   xForce: 0
   yForce: 10
+--- !u!114 &3237194595867986424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963301127435477922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa9c4abb27382845872b11f496aab0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponLevel: 1

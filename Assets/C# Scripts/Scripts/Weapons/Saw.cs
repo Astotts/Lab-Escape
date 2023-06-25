@@ -13,6 +13,8 @@ public class Saw : MonoBehaviour
 
     void Update()
     {
+        LevelUpdate();
+
         FollowMousePos();
 
         //Adjust CoolDown
@@ -53,18 +55,23 @@ public class Saw : MonoBehaviour
         {
             level = weaponlevel;
         }
-        
+
+        //Here for reset
+        if (level == 1)
+        {
+            this.transform.localScale = new Vector3(2, 2, 1);
+            maxCD = 1f;
+        }
         //Increased size and damage
         if (level == 2)
         {
             this.transform.localScale = new Vector3(3, 3, 1);
             damage = 2;
         }
-        //Increased size and damage
+        //Increased FireRate
         if (level == 3)
         {
-            this.transform.localScale = new Vector3(4, 4, 1);
-            damage = 3;
+            maxCD = 0.5f;
         }
     }
 }

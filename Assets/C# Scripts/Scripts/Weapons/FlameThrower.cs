@@ -12,6 +12,8 @@ public class FlameThrower : MonoBehaviour
 
     void Update()
     {
+        LevelUpdate();
+
         //Adjust CoolDown
         if (attackCD < maxCD)
         {
@@ -44,10 +46,20 @@ public class FlameThrower : MonoBehaviour
             level = weaponlevel;
         }
 
+        //Here for reset
+        if (level == 1)
+        {
+            maxCD = 0.5f;
+        }
         //Increased FireRate
         if (level == 2)
         {
             maxCD = 0.3f;
+        }
+        //Increased FireRate
+        if (level == 3)
+        {
+            maxCD = 0.15f;
         }
     }
 }

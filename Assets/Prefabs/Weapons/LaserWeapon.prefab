@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1452473774666952841}
   - component: {fileID: 8446316232785538256}
-  - component: {fileID: 5835858532884464397}
+  - component: {fileID: 467257247143236146}
+  - component: {fileID: 1031348367425291269}
   m_Layer: 0
   m_Name: LaserWeapon
   m_TagString: Untagged
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5835858532884464397
+--- !u!114 &467257247143236146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,15 +96,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 5822661347980649956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3efc7ada2cbfca64bb40368e9e286569, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c90faffab1287b4caf956d9024bd229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
   maxCD: 2
   attackCD: 0
   proj1: {fileID: 8280095546454658962, guid: 13ff05d3490fe59489cbf4b84c998562, type: 3}
+  proj2: {fileID: 2166827814188079632, guid: d4b668e3fceb6a2419baafa7342dc3a2, type: 3}
   xForce: 0
   yForce: 30
+--- !u!114 &1031348367425291269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822661347980649956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa9c4abb27382845872b11f496aab0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponLevel: 1
 --- !u!1 &8299018490485918891
 GameObject:
   m_ObjectHideFlags: 0

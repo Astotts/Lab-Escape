@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileLauncher : MonoBehaviour
+public class LaserLauncher : MonoBehaviour
 {
     public int level;
 
-    public float maxCD = 4f;
+    public float maxCD = 2f;
     public float attackCD = 0f;
 
     public GameObject proj1;
@@ -49,7 +49,7 @@ public class ProjectileLauncher : MonoBehaviour
         //==================================================================
     }
 
-    //This should only be called once immediately after the player levels up an arm
+    //This should only be called once immediately after the player levels up an arm or resets
     public void LevelUpdate()
     {
         int weaponlevel = GetComponent<WeaponController>().weaponLevel;
@@ -59,20 +59,20 @@ public class ProjectileLauncher : MonoBehaviour
         }
 
         //Here for reset
-        if (level == 1)
+        if(level == 1)
         {
             projToSpawn = proj1;
-            maxCD = 4f;
+            maxCD = 2f;
         }
-        //Increased FireRate
+        //Increased Damage with new laser
         if (level == 2)
         {
-            maxCD = 3f;
+            projToSpawn = proj2;
         }
-        //Increased Size with new Spike
+        //Increased FireRate
         if (level == 3)
         {
-            projToSpawn = proj2;
+            maxCD = 1f;
         }
     }
 }
