@@ -17,6 +17,8 @@ public class Saw : MonoBehaviour
     {
         LevelUpdate();
 
+        FollowMousePos();
+
         //Adjust CoolDown
         if (attackCD < maxCD)
         {

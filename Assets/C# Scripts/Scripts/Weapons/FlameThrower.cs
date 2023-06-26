@@ -45,8 +45,11 @@ public class FlameThrower : MonoBehaviour
             {
                 enemyList.Remove(enemy.gameObject);
             }
-            enemy.GetComponent<EnemyData>().TakeDamage(damage);
-            Debug.Log("Flamethrower has damaged the Enemy");
+            if(enemy != null)
+            {
+                enemy.GetComponent<EnemyData>().TakeDamage(damage);
+                Debug.Log("Flamethrower has damaged the Enemy");
+            }
         }
     }
 
