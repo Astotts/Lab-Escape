@@ -15,6 +15,7 @@ public class Magnet : MonoBehaviour
 
     void Update()
     {
+        LevelUpdate();
         if (gravityTime < gravityMaxDuration)
         {
             if(gravityTime >= gravityStartTime)
