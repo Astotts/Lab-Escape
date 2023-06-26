@@ -7,17 +7,29 @@ using TMPro;
 
 public class ResetControl : MonoBehaviour
 {
-
+    [Tooltip("determine increments")]
     public float multipilerAmount = 2;
-    public int count = 0;
-
-    [SerializeField] private TMP_Text Txt;
+    [Tooltip("equation is:  y = ((multipilerAmount)^x) * (1/multiplilerWidth) + (multiplilerWidth-1)/multiplilerWidth")]
+    public float multiplilerWidth = 1;
+    public int goal = 1000;
+    private bool boolReset = false;
+    private BiomassPoints points;
 
     void Start(){
+        points = transform.root.GetComponent<BiomassPoints>();
         if(!PlayerPrefs.HasKey("pointsMultiplier")){
             PlayerPrefs.SetFloat("pointsMultiplier",1);//default
         }
-        //Txt.text = PlayerPrefs.GetFloat("pointsMultiplier").ToString();//for testing
+        if(!PlayerPrefs.HasKey("ppointsGoal")){
+            PlayerPrefs.SetFloat("pointsGoal",goal);//default
+        }
+    }
+
+    void Update(){
+        if(points.points >= PlayerPrefs.GetFloat("pointsGoal") && !boolReset){
+           gameObject.transform.GetChild(0).gameObject.SetActive(true);
+           boolReset = true;
+        }
     }
 
 
@@ -28,13 +40,14 @@ public class ResetControl : MonoBehaviour
 
         //bonus multiplier
         var mult = PlayerPrefs.GetFloat("pointsMultiplier");
-        mult = mult * multipilerAmount;
+        mult = (mult * multipilerAmount)* (1/multiplilerWidth) + ((multiplilerWidth-1)/multiplilerWidth);
         PlayerPrefs.SetFloat("pointsMultiplier",mult);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//reset everything 
     }
 
     public void FullReset(){
         PlayerPrefs.SetFloat("pointsMultiplier",1);
+        PlayerPrefs.SetInt("pointsGoal",goal);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//reset everything
     }
 
