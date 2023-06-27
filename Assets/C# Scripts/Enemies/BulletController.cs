@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public float speed = 10.0f;
-    private float duration = 1f;
+    private float duration = 2f;
     private float startTime = 0f;
     private int damageOutput = 1;
     public bool hitSomething = false;
@@ -13,6 +13,7 @@ public class BulletController : MonoBehaviour
     private Animator animator;
     private AudioSource hitSound;
     public AudioClip smallHit;
+
 
 
     public void Start()
@@ -39,12 +40,15 @@ public class BulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D touched)
     {
-        if (touched.tag == "Enemy" && hitSomething == false)
+        if ((tag == "PlayerBullet" && touched.tag == "Enemy") || (tag == "EnemyBullet" && touched.tag == "Player") && hitSomething == false)
         {
-            touched.gameObject.GetComponent<DamageController>().TakeDamage(damageOutput);
-            animator.SetTrigger("hitSomething");
             hitSomething = true;
-            hitSound.PlayOneShot(smallHit, 0.7f);
+            if (touched.gameObject.GetComponent<DamageController>() != null)
+            {
+                touched.gameObject.GetComponent<DamageController>().TakeDamage(damageOutput);
+            }
+            animator.SetTrigger("hitSomething");
+            hitSound.PlayOneShot(smallHit, 0.4f);
             Destroy(gameObject, 0.50f);
         }
 

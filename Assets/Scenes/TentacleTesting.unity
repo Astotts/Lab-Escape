@@ -512,26 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875bc4312c325d44a8cff8111b9a862a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacleRB: {fileID: 172138610}
-  rotateSpeed: 100
-  moveSpeed: 1
-  tentacleEnd: {fileID: 172138608}
-  monsterTransform: {fileID: 226021502}
-  maxRadius: 1.5
-  minRadius: 0.7
-  lineRenderer: {fileID: 20558261}
-  tentacleSegPos:
-  - {fileID: 20558260}
-  - {fileID: 1426303384}
-  - {fileID: 1482544867}
-  - {fileID: 852929137}
-  - {fileID: 172138608}
-  lineSegPos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!1 &47564882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,26 +1368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875bc4312c325d44a8cff8111b9a862a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacleRB: {fileID: 1594952466}
-  rotateSpeed: 100
-  moveSpeed: 1
-  tentacleEnd: {fileID: 1594952464}
-  monsterTransform: {fileID: 226021502}
-  maxRadius: 1.5
-  minRadius: 0.7
-  lineRenderer: {fileID: 134600783}
-  tentacleSegPos:
-  - {fileID: 134600782}
-  - {fileID: 211509256}
-  - {fileID: 1514173618}
-  - {fileID: 394441690}
-  - {fileID: 1594952464}
-  lineSegPos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!1 &172138607
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,26 +2664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875bc4312c325d44a8cff8111b9a862a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacleRB: {fileID: 1247623815}
-  rotateSpeed: 100
-  moveSpeed: 1
-  tentacleEnd: {fileID: 1247623813}
-  monsterTransform: {fileID: 226021502}
-  maxRadius: 1.5
-  minRadius: 0.7
-  lineRenderer: {fileID: 276315286}
-  tentacleSegPos:
-  - {fileID: 276315285}
-  - {fileID: 864364825}
-  - {fileID: 2072135883}
-  - {fileID: 1298111638}
-  - {fileID: 1247623813}
-  lineSegPos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!1 &279948538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,26 +3166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875bc4312c325d44a8cff8111b9a862a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacleRB: {fileID: 580420116}
-  rotateSpeed: 100
-  moveSpeed: 1
-  tentacleEnd: {fileID: 580420114}
-  monsterTransform: {fileID: 226021502}
-  maxRadius: 1.5
-  minRadius: 0.7
-  lineRenderer: {fileID: 369489916}
-  tentacleSegPos:
-  - {fileID: 369489915}
-  - {fileID: 1814839286}
-  - {fileID: 427713524}
-  - {fileID: 563292145}
-  - {fileID: 580420114}
-  lineSegPos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!1 &387202878
 GameObject:
   m_ObjectHideFlags: 0
@@ -4561,26 +4481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875bc4312c325d44a8cff8111b9a862a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacleRB: {fileID: 279948541}
-  rotateSpeed: 100
-  moveSpeed: 1
-  tentacleEnd: {fileID: 279948539}
-  monsterTransform: {fileID: 226021502}
-  maxRadius: 1.5
-  minRadius: 0.7
-  lineRenderer: {fileID: 481567395}
-  tentacleSegPos:
-  - {fileID: 481567394}
-  - {fileID: 1382007885}
-  - {fileID: 1208523225}
-  - {fileID: 556081487}
-  - {fileID: 279948539}
-  lineSegPos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!1 &516168795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6845,26 +6745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875bc4312c325d44a8cff8111b9a862a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacleRB: {fileID: 1535466479}
-  rotateSpeed: 100
-  moveSpeed: 1
-  tentacleEnd: {fileID: 1535466477}
-  monsterTransform: {fileID: 226021502}
-  maxRadius: 1.5
-  minRadius: 0.7
-  lineRenderer: {fileID: 765347843}
-  tentacleSegPos:
-  - {fileID: 765347842}
-  - {fileID: 1475032792}
-  - {fileID: 10995137}
-  - {fileID: 1503344447}
-  - {fileID: 1535466477}
-  lineSegPos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!1 &774495018
 GameObject:
   m_ObjectHideFlags: 0
@@ -7010,7 +6890,7 @@ GameObject:
   - component: {fileID: 818357298}
   m_Layer: 0
   m_Name: Eye ---------
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7265,26 +7145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875bc4312c325d44a8cff8111b9a862a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacleRB: {fileID: 2072275701}
-  rotateSpeed: 100
-  moveSpeed: 1
-  tentacleEnd: {fileID: 2072275699}
-  monsterTransform: {fileID: 226021502}
-  maxRadius: 1.5
-  minRadius: 0.7
-  lineRenderer: {fileID: 823770474}
-  tentacleSegPos:
-  - {fileID: 823770473}
-  - {fileID: 119153385}
-  - {fileID: 551402067}
-  - {fileID: 614308045}
-  - {fileID: 2072275699}
-  lineSegPos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!1 &839798614
 GameObject:
   m_ObjectHideFlags: 0
@@ -8398,26 +8258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875bc4312c325d44a8cff8111b9a862a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacleRB: {fileID: 1073379976}
-  rotateSpeed: 100
-  moveSpeed: 1
-  tentacleEnd: {fileID: 1073379974}
-  monsterTransform: {fileID: 226021502}
-  maxRadius: 1.5
-  minRadius: 0.7
-  lineRenderer: {fileID: 970322000}
-  tentacleSegPos:
-  - {fileID: 970321999}
-  - {fileID: 390468818}
-  - {fileID: 999815800}
-  - {fileID: 937231206}
-  - {fileID: 1073379974}
-  lineSegPos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!1 &974163307
 GameObject:
   m_ObjectHideFlags: 0
@@ -12836,7 +12676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d8a884dbfcde3429e96b5a8b5245c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scientistPrefab: {fileID: 4953554196496753020, guid: f04d916ef1904234a93b1dd837b92376, type: 3}
+  jetpackPrefab: {fileID: 6006316998447625786, guid: f5dabd9c7511c0340ad5717160e74b6b, type: 3}
+  groundPrefab: {fileID: 4925907650164689598, guid: 8dd8ab805914d65479b3d0da379932f5, type: 3}
 --- !u!4 &1585990643
 Transform:
   m_ObjectHideFlags: 0
@@ -20293,8 +20134,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4233745439537889227}
   m_HandleRect: {fileID: 1098578626371245759}
   m_Direction: 2
-  m_Value: 0.49998143
-  m_Size: 0.98135376
+  m_Value: 0.5000093
+  m_Size: 0.9813535
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -3,7 +3,9 @@ guid: 18d8a884dbfcde3429e96b5a8b5245c5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - jetpackPrefab: {fileID: 3150395010991480390, guid: f04d916ef1904234a93b1dd837b92376, type: 3}
+  - groundPrefab: {fileID: 4925907650164689598, guid: 8dd8ab805914d65479b3d0da379932f5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
