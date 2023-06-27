@@ -38,10 +38,4 @@ public class BiomassPoints : MonoBehaviour
         this.points = 100;
         this.currencyTxt.text = this.points.ToString();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
