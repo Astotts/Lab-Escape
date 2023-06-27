@@ -37,11 +37,18 @@ public class BuzzSaw : GenericWeapon
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        enemyList.Add(col.gameObject);
+        if (col.tag == "Enemy")
+        {
+            enemyList.Add(col.gameObject);
+        }
+        
     }
     void OnTriggerExit2D(Collider2D col)
     {
-        enemyList.Remove(col.gameObject);
+        if (col.tag == "Enemy")
+        { 
+            enemyList.Remove(col.gameObject);
+        }
     }
 
     void DamageEnemies()
