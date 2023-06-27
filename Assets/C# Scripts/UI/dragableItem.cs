@@ -9,6 +9,7 @@ public class dragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public Image image;
      public Transform parrentAfterDrag;//to set as first child of canvas
     private Canvas parentCanvasOfImageToMove;
+    [SerializeField] public int weaponNumber;
 
     public void OnBeginDrag(PointerEventData eventData){
         //Debug.Log("begin drag");
@@ -28,6 +29,7 @@ public class dragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent as RectTransform, Input.mousePosition, parentCanvasOfImageToMove.worldCamera, out pos);
         //imageToMove.transform.position = parentCanvasOfImageToMove.transform.TransformPoint(pos);
         transform.position = parentCanvasOfImageToMove.transform.TransformPoint(pos);
+
     }
 
     public void OnEndDrag(PointerEventData eventData){
