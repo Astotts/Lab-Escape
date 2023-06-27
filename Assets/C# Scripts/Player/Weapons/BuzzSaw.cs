@@ -53,6 +53,7 @@ public class BuzzSaw : GenericWeapon
                 enemyList.Remove(enemy.gameObject);
             }
             else{
+                Debug.Log(enemy.GetComponent<DamageController>());
                 enemy.GetComponent<DamageController>().TakeDamage(damage);
                 Debug.Log("BuzzSaw has damaged the Enemy");
             } 
