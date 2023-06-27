@@ -1430,7 +1430,7 @@ MonoBehaviour:
   tentacleRB: {fileID: 1594952466}
   rotateSpeed: 10
   moveSpeed: 1
-  tentacleEnd: {fileID: 0}
+  tentacleEnd: {fileID: 1594952464}
   monsterTransform: {fileID: 226021502}
   maxRadius: 1.5
   minRadius: 0.75
@@ -7842,7 +7842,7 @@ MonoBehaviour:
   tentacleRB: {fileID: 1535466479}
   rotateSpeed: 10
   moveSpeed: 1
-  tentacleEnd: {fileID: 0}
+  tentacleEnd: {fileID: 1535466477}
   monsterTransform: {fileID: 226021502}
   maxRadius: 1.5
   minRadius: 0.75
@@ -20514,8 +20514,6 @@ MonoBehaviour:
   - {fileID: 287099060}
   - {fileID: 719364466}
   - {fileID: 817151785}
-  - {fileID: 0}
-  - {fileID: 0}
   weaponTexts:
   - {fileID: 4376831184651694187}
   - {fileID: 2864892301828453146}
@@ -20523,8 +20521,6 @@ MonoBehaviour:
   - {fileID: 2029636940}
   - {fileID: 717510171}
   - {fileID: 717510171}
-  - {fileID: 0}
-  - {fileID: 0}
   slots:
   - {fileID: 8134289419896633588}
   - {fileID: 4858958788215712865}

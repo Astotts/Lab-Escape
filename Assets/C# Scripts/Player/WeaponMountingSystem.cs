@@ -16,16 +16,16 @@ public class WeaponMountingSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       for(int i = 0; i < costTexts.Length - 1; i++){
+            weaponTexts[i].text = "Upgrade";
+            costTexts[i].text = "0";
+        } 
     }
 
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < costTexts.Length - 1; i++){
-            weaponTexts[i].text = "Upgrade";
-            costTexts[i].text = "0";
-        }
+        
     }
 
     public void AssignWeapon(int weapon, int mountTentacle){
