@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1807754745706538792}
   m_Layer: 3
   m_Name: EvilBullet
-  m_TagString: Enemy
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

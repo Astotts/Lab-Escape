@@ -66,7 +66,7 @@ public class GroundController : DamageController
             {
                 if (isShooting == false) //Add conditions that require the tentacle to have lined up the shot towards an enemy
                 {
-                    enemyAudio.PlayOneShot(shootSound, 0.1f);
+                    enemyAudio.PlayOneShot(shootSound, 0.05f);
                     isShooting = true;
                     attackCooldown = Time.time + attackLength + Random.Range(0f, 0.1f);
                     Instantiate(bulletPrefab, transform.position, Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(transform.position.y - target.transform.position.y, transform.position.x - target.transform.position.x) * Mathf.Rad2Deg)));

@@ -40,7 +40,7 @@ public class BulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D touched)
     {
-        if ((tag == "Player" && touched.tag == "Enemy") || (tag == "Enemy" && touched.tag == "Player") && hitSomething == false)
+        if ((tag == "PlayerBullet" && touched.tag == "Enemy") || (tag == "EnemyBullet" && touched.tag == "Player") && hitSomething == false)
         {
             hitSomething = true;
             if (touched.gameObject.GetComponent<DamageController>() != null)
@@ -48,7 +48,7 @@ public class BulletController : MonoBehaviour
                 touched.gameObject.GetComponent<DamageController>().TakeDamage(damageOutput);
             }
             animator.SetTrigger("hitSomething");
-            hitSound.PlayOneShot(smallHit, 0.7f);
+            hitSound.PlayOneShot(smallHit, 0.4f);
             Destroy(gameObject, 0.50f);
         }
 
