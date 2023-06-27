@@ -9,21 +9,23 @@ using UnityEngine.UI;
 
 public class WeaponController : MonoBehaviour
 {
-    public int weaponLevel;
+    public int weaponLevel = 1;
+    
+    //0 = Saw               4 = 
+    //1 = Flamethrower      5 = 
+    //2 = Laser             6 = 
+    //3 = Chainsaw          7 = 
+    int weaponType;
 
     public void upgradeWeapon(int buy)
     {
-        
+        //Set weaponType to a value depending on the weapon upgraded
+
+        if(weaponType == 0) { LevelSaw(); }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void LevelSaw()
     {
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-    
+        GetComponent<Saw>().LevelUpdate();
     }
 }
