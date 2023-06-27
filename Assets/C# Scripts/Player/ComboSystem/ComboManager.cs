@@ -25,6 +25,10 @@ public class ComboManager : MonoBehaviour
             timeToKill -= Time.deltaTime;
             timeToKill = Mathf.Clamp(timeToKill, 0f, defaultTimeToKill);
             slider.value = timeToKill;
+            
+        }
+        else{
+            PlaySong(0);
         }
         if(timeToKill <= 0f){
             ComboEnd();
