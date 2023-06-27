@@ -9,28 +9,30 @@ public class DamageController : MonoBehaviour
     [SerializeField] public AudioClip death;
     [SerializeField] public AudioSource enemyAudio;
 
-    [SerializeField] private GameObject canvas;
-    private BiomassPoints biomassPoints;
-    private ComboManager comboManager;
+    public GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
-        biomassPoints = canvas.GetComponent<BiomassPoints>();
-        comboManager = canvas.GetComponent<ComboManager>();
+        
     }
 
+    void Awake()
+    {
+        health = maxHealth;
+        canvas = GameObject.FindWithTag("UI");
+    }
 
     public void TakeDamage(int damage)
     {
-        //biomassPoints.AddPoints(damage);
         health -= damage;
 
         if(health <= 0)
         {
+
             enemyAudio.PlayOneShot(death, 0.7f);
-            //comboManager.ComboKill();
+            canvas.GetComponent<BiomassPoints>().AddPoints(maxHealth);
+            canvas.GetComponent<ComboManager>().ComboKill();
             Destroy(gameObject, 2f);
         }
     }
