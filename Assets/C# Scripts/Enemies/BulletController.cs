@@ -7,7 +7,7 @@ public class BulletController : MonoBehaviour
     public float speed = 10.0f;
     private float duration = 2f;
     private float startTime = 0f;
-    private int damageOutput = 2;
+    private int damageOutput = 1;
     public bool hitSomething = false;
 
     private Animator animator;
@@ -43,7 +43,10 @@ public class BulletController : MonoBehaviour
         if ((tag == "Player" && touched.tag == "Enemy") || (tag == "Enemy" && touched.tag == "Player") && hitSomething == false)
         {
             hitSomething = true;
-            touched.gameObject.GetComponent<DamageController>().TakeDamage(damageOutput);
+            if (touched.gameObject.GetComponent<DamageController>() != null)
+            {
+                touched.gameObject.GetComponent<DamageController>().TakeDamage(damageOutput);
+            }
             animator.SetTrigger("hitSomething");
             hitSound.PlayOneShot(smallHit, 0.7f);
             Destroy(gameObject, 0.50f);

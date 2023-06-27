@@ -457,7 +457,7 @@ Transform:
   - {fileID: 7788800462491064613}
   - {fileID: 4325195598897333285}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8652029737233534969
 Animator:
@@ -584,7 +584,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.3
+  m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -613,6 +613,7 @@ MonoBehaviour:
   maxHealth: 4
   death: {fileID: 8300000, guid: aad842a0f2265094ca97aaba9f6de076, type: 3}
   enemyAudio: {fileID: 1958762109129374986}
+  canvas: {fileID: 0}
   mainCollider: {fileID: 4132336140029499058}
   rbEnemy: {fileID: -7775902541455183874}
   moveSpeed: 3

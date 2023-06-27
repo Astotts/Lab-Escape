@@ -463,7 +463,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.3
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -633,6 +633,7 @@ MonoBehaviour:
   maxHealth: 4
   death: {fileID: 8300000, guid: aad842a0f2265094ca97aaba9f6de076, type: 3}
   enemyAudio: {fileID: 962807475587155260}
+  canvas: {fileID: 0}
   mainCollider: {fileID: 736540759713147420}
   rbEnemy: {fileID: 4338704693854389761}
   moveSpeed: 3

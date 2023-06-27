@@ -41,6 +41,16 @@ public class GroundController : DamageController
                 transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
             }
 
+            else if (-1 < transform.position.x && transform.position.x < 0)
+            {
+                transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+            }
+
+            else if (0 < transform.position.x && transform.position.x < 1)
+            {
+                transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+            }
+
 
             if (transform.position.x > 6)
             {

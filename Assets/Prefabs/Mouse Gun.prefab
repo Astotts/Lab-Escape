@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7194434049981223974}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.345714, y: 1.3885715, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2635041607008571488
 SpriteRenderer:
@@ -102,10 +102,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   maxHealth: 2
-  death: {fileID: 0}
-  enemyAudio: {fileID: 0}
+  death: {fileID: 8300000, guid: aad842a0f2265094ca97aaba9f6de076, type: 3}
+  enemyAudio: {fileID: 638620182943173413}
+  canvas: {fileID: 0}
   bulletPrefab: {fileID: 262210044961660501, guid: 509a5eb1a1eb6fe499e749c6f0965ed1, type: 3}
-  shootSound: {fileID: 8300000, guid: b6c306a2af939df43ab232d231eadbf6, type: 3}
+  shootSound: {fileID: 8300000, guid: 044654fe74fb2db428016b8d50e9d2de, type: 3}
 --- !u!82 &638620182943173413
 AudioSource:
   m_ObjectHideFlags: 0
