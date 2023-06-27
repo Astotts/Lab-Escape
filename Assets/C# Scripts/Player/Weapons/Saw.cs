@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Saw : MonoBehaviour
+public class Saw : GenericWeapon
 {
     public int level;
     public int damage = 1;
+    public int cost = 250;
 
     public float maxCD = 1f;
     public float attackCD = 0f;
@@ -48,7 +49,7 @@ public class Saw : MonoBehaviour
             {
                 enemyList.Remove(enemy.gameObject);
             }
-            enemy.GetComponent<EnemyData>().TakeDamage(damage);
+            enemy.GetComponent<DamageController>().TakeDamage(damage);
             Debug.Log("Saw has damaged the Enemy");
         }
     }
@@ -67,6 +68,7 @@ public class Saw : MonoBehaviour
         if (level != weaponlevel)
         {
             level = weaponlevel;
+            cost *= level;
         }
 
         //Here for reset
