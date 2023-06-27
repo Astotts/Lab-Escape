@@ -56,17 +56,10 @@ public class ArmController : MonoBehaviour
                     _radius = Mathf.Lerp(_radius, maxRadius, elapsed);
                 }
                 _radius = Mathf.Clamp(_radius, minRadius, maxRadius);
-                RotateAround(10f, _radius);
+                RotateAround(10f);
             }    
-            else if(target == null){ //Retract from attack position
-                Debug.Log("Retracting");
-                elapsed -= moveSpeed * Time.deltaTime / 10f;
-                _radius = Mathf.Clamp(_radius, minRadius, maxRadius);
-                RotateAround(10f, _radius);
-                if(_radius <= minRadius + 0.01f){
-                    _radius = minRadius;
-                    target = GameObject.FindWithTag("Enemy").transform; 
-                }
+            else if(target == null){
+                target = GameObject.FindWithTag("Enemy").transform; 
             }
         }
         else{
@@ -78,30 +71,24 @@ public class ArmController : MonoBehaviour
         lineRenderer.SetPositions(lineSegPos);
     }
     
-    private void RotateAround(float deg, float radius){
+    private void RotateAround(float deg){
         destinationPos = Vector2.zero;
         if(target != null){
-            float vX = target.position.x - monsterTransform.position.x;
-            float vY = target.position.y - monsterTransform.position.y;
-            float dMag = Mathf.Sqrt(vX*vX+vY*vY);
-            destinationPos.x = (vX + monsterTransform.position.x) / dMag * _radius;
-            destinationPos.y = (vY + monsterTransform.position.y) / dMag * _radius;
-
             if(Vector2.Distance(tentacleEnd.position, destinationPos) < 0.01f){
                 tentacleEnd.position = destinationPos;
                 return;
             }
+
+            tentacleRB.velocity = (target.position - tentacleEnd.position) * Time.deltaTime * 100;
+        
+            if(Vector2.Distance(tentacleEnd.position, monsterTransform.position) > 1.5f){
+                float angle = (Vector3.Angle(monsterTransform.position, tentacleEnd.position) - 90) / 180 * Mathf.PI;
+                float x = _radius * Mathf.Cos(angle) + monsterTransform.position.x;
+                float y = _radius * Mathf.Sin(angle) + monsterTransform.position.y;
+                tentacleEnd.position = new Vector3(x, y, 0f);
+            }
         }
-        //destinationPos.x += Random.Range(-10f, 10f);
-        //destinationPos.y += Random.Range(-10f, 10f);
-        tentacleRB.velocity = destinationPos * Time.deltaTime * 100;
-        Debug.DrawRay(tentacleEnd.position, destinationPos * Time.deltaTime * 100, Color.green, 0.1f, false);
-        if(Vector2.Distance(tentacleEnd.position, monsterTransform.position) > 1.5f){
-            float angle = (Vector3.Angle(monsterTransform.position, tentacleEnd.position) - 90) / 180 * Mathf.PI;
-            float x = radius * Mathf.Cos(angle) + monsterTransform.position.x;
-            float y = radius * Mathf.Sin(angle) + monsterTransform.position.y;
-            tentacleEnd.position = new Vector3(x, y, 0f);
-        }
+        
 
     }
 
