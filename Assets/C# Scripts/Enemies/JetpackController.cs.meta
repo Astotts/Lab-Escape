@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b31576fa08218e64fb8737866c302cb4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - death: {fileID: 8300000, guid: 06653354138f9f04db4a36bc03596c46, type: 3}
+  - enemyAudio: {instanceID: 0}
+  - mainCollider: {instanceID: 0}
+  - rbEnemy: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

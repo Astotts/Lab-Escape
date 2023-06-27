@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour
 {
-    public int health = 4, maxHealth = 4;
+    public int health = 2, maxHealth = 2;
 
     [SerializeField] public AudioClip death;
-    [SerializeField] private AudioSource enemyAudio;
+    [SerializeField] public AudioSource enemyAudio;
 
-    [SerializeField] private BiomassPoints biomassPoints;
-    [SerializeField] private ComboManager comboManager;
+    //[SerializeField] private BiomassPoints biomassPoints;
+    //[SerializeField] private ComboManager comboManager;
 
     // Start is called before the first frame update
     void Start()
@@ -18,21 +18,21 @@ public class DamageController : MonoBehaviour
         health = maxHealth;
     }
 
-    void Awake(){
-        biomassPoints = FindObjectOfType<BiomassPoints>();
-        comboManager = FindObjectOfType<ComboManager>();
-        TakeDamage(4);
+    void Awake()
+    {
+        //biomassPoints = FindObjectOfType<BiomassPoints>();
+        //comboManager = FindObjectOfType<ComboManager>();
     }
 
     public void TakeDamage(int damage)
     {
-        biomassPoints.AddPoints(damage);
+        //biomassPoints.AddPoints(damage);
         health -= damage;
 
         if(health <= 0)
         {
             enemyAudio.PlayOneShot(death, 0.7f);
-            comboManager.ComboKill();
+            //comboManager.ComboKill();
             Destroy(gameObject, 2f);
         }
     }
