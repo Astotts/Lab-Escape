@@ -21,7 +21,6 @@ public class DamageController : MonoBehaviour
     void Awake(){
         biomassPoints = FindObjectOfType<BiomassPoints>();
         comboManager = FindObjectOfType<ComboManager>();
-        TakeDamage(4);
     }
 
     public void TakeDamage(int damage)

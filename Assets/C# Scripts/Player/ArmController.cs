@@ -6,117 +6,118 @@ public class ArmController : MonoBehaviour
 {
     // Onboard components
     private BoxCollider2D mainCollider;
-    private Rigidbody2D rbArm;
-    private Vector3 armPos;
+    [SerializeField] private Rigidbody2D tentacleRB;
+    private Transform armPos;
 
-    // Offboard components
-    private GameObject target;
-    private Transform targetPos;
-
+    //Targeting
+    private Transform target;
 
     // Tuning variables
-    public Vector2 direction;
+    private Vector2 direction;
     private float rotateAmount;
-    public float rotateSpeed = 400f;
+    [SerializeField] private float rotateSpeed;
+    [SerializeField] private float moveSpeed;
 
-    private float attackLength = 0.8f;
-    private bool isShooting = false;
-    private float attackCooldown = float.MaxValue;
-
-    public GameObject bulletPrefab;
-    public Transform armLengthOffset;
-
-    public AudioClip shootSound;
-    private AudioSource armSound;
-
-    private float _radius = 0f; //computed/active radius
-    [SerializeField] private float radius; //maxiumum radius
-
+    //Positioning Tentacle
+    private Vector2 endPos;
     [SerializeField] private Transform tentacleEnd;
-    private Transform _target;
+    [SerializeField] private Transform monsterTransform;
+    [SerializeField] private float maxRadius; //Radius which tentacles snap to
+    [SerializeField] private float minRadius; //When point is within radius it will lerp to the outter radius
+    private float _radius = 0f; //computed/active radius
+    private float elapsed;
+    private Vector2 destinationPos;
 
-
-
-    void Start()
+    //LineRenderer Components
+    [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] private Transform[] tentacleSegPos;
+    [SerializeField] private Vector3[] lineSegPos;
+    
+    void FixedUpdate()
     {
-        // Find components
-        rbArm = GetComponent<Rigidbody2D>();
-        armSound = GetComponent<AudioSource>();
-
-    }
-
-    void Update()
-    {
+        if(GameManager.active){
+            tentacleRB.gravityScale = 0f;
+            tentacleSegPos[0].position = monsterTransform.position; //Set origin point of tentacle line
         
-
-      /*  if (target)
-        {
-            if(target != null){
-                //Facing of the weapon
-                direction = tentacleEnd.position - targetPos;
-                direction = direction.normalized;
-                rotateAmount = Vector3.Cross(direction, transform.up).z;
-                unitRB.angularVelocity = rotateAmount * rotateSpeed;
-
+            float distance = Vector2.Distance(monsterTransform.position, tentacleSegPos[tentacleSegPos.Length - 1].position);
+            if(Vector2.Distance(endPos, tentacleSegPos[tentacleSegPos.Length - 1].position) < 0.01f){ //If the end of the tentacle is within 1 unit from the end point
+                tentacleSegPos[tentacleSegPos.Length - 1].position = endPos;
+                //Debug.Log("Snapping");
+            }
+            else if(target != null){//Extend to attack     
                 //snaps the end of the tentacle to the edge of an imaginary circle with a specified radius
-                if(angle == 0){
-                    angle = (tentacleEnd.eulerAngles.z - 90) / 180 * Mathf.PI;
-                    unitRB.velocity = Vector2.zero;
+                //Debug.Log("Extending");
+                direction = this.transform.position - target.position;
+                direction.Normalize();
+                rotateAmount = Vector3.Cross(direction, tentacleEnd.up).z;
+                tentacleRB.angularVelocity = -rotateAmount * rotateSpeed;
+                if(elapsed < 1f){ 
+                    elapsed += moveSpeed * Time.deltaTime / 10f;
+                    _radius = Mathf.Lerp(_radius, maxRadius, elapsed);
                 }
-                //Lerp Radius from current radius to max radius (The radius should increase when the tentacle is within a few degrees of pointing at the target and decrease when the tentacle is far from pointing at the target)
-                RotateAround(50f, _radius);
+                _radius = Mathf.Clamp(_radius, minRadius, maxRadius);
+                RotateAround(10f, _radius);
+            }    
+            else if(target == null){ //Retract from attack position
+                Debug.Log("Retracting");
+                elapsed -= moveSpeed * Time.deltaTime / 10f;
+                _radius = Mathf.Clamp(_radius, minRadius, maxRadius);
+                RotateAround(10f, _radius);
+                if(_radius <= minRadius + 0.01f){
+                    _radius = minRadius;
+                    target = GameObject.FindWithTag("Enemy").transform; 
+                }
             }
-            //float desiredAngle = Mathf.Atan2(target.transform.position.y, target.transform.position.x) * Mathf.Rad2Deg;
-            //rotateAmount = Mathf.DeltaAngle(transform.rotation.z, desiredAngle) * Mathf.Deg2Rad; 
-            //transform.Rotate(0f, 0f, Random.Range(-1f, 1f) + rotateAmount * rotateSpeed, 0f);
-        }
-        else
-        {
-            angle = 0;
-            target = GameObject.FindWithTag("Enemy"); 
-            if(target != null){
-                targetPos = target.transform;
-            }
-            else{
-                Debug.Warning("No Enemies Found");
-            }
-        }
-       
-
-        // Attack target
-
-        if (isShooting == false) //Add conditions that require the tentacle to have lined up the shot towards an enemy
-        {
-            armSound.PlayOneShot(shootSound, 0.1f);
-            isShooting = true;
-            attackCooldown = Time.time + attackLength + Random.Range(0f, 0.1f);
-            Instantiate(bulletPrefab, armLengthOffset.position, transform.rotation);
-        }
-
-        else if (isShooting == true && attackCooldown < Time.time)
-        {
-            isShooting = false;
-        }
-    }
-
-    public void SetTarget(Transform target){
-        destination = target;
-    }
-
-    private Vector3 RotateAround(float deg, float radius){
-        unitRB.velocity = Vector2.zero;
-        float x = 0;
-        float y = 0;
-        if(Vector3.Distance(tentacleEnd.right + tentacleEnd.position, destination.position -destination.up * 30f) > Vector3.Distance(-tentacleEnd.right + tentacleEnd.position, destination.position -destination.up * 30f)){
-            angle -= deg * Mathf.Deg2Rad * Time.deltaTime;
         }
         else{
-            angle += deg * Mathf.Deg2Rad * Time.deltaTime;
+            tentacleRB.gravityScale = 1f;
+        }
+        for(int i = 0; i < tentacleSegPos.Length; i++){
+            lineSegPos[i] = tentacleSegPos[i].position;
+        }
+        lineRenderer.SetPositions(lineSegPos);
+    }
+    
+    private void RotateAround(float deg, float radius){
+        destinationPos = Vector2.zero;
+        if(target != null){
+            float vX = target.position.x - monsterTransform.position.x;
+            float vY = target.position.y - monsterTransform.position.y;
+            float dMag = Mathf.Sqrt(vX*vX+vY*vY);
+            destinationPos.x = (vX + monsterTransform.position.x) / dMag * _radius;
+            destinationPos.y = (vY + monsterTransform.position.y) / dMag * _radius;
+
+            if(Vector2.Distance(tentacleEnd.position, destinationPos) < 0.01f){
+                tentacleEnd.position = destinationPos;
+                return;
+            }
+        }
+        //destinationPos.x += Random.Range(-10f, 10f);
+        //destinationPos.y += Random.Range(-10f, 10f);
+        tentacleRB.velocity = destinationPos * Time.deltaTime * 100;
+        Debug.DrawRay(tentacleEnd.position, destinationPos * Time.deltaTime * 100, Color.green, 0.1f, false);
+        if(Vector2.Distance(tentacleEnd.position, monsterTransform.position) > 1.5f){
+            float angle = (Vector3.Angle(monsterTransform.position, tentacleEnd.position) - 90) / 180 * Mathf.PI;
+            float x = radius * Mathf.Cos(angle) + monsterTransform.position.x;
+            float y = radius * Mathf.Sin(angle) + monsterTransform.position.y;
+            tentacleEnd.position = new Vector3(x, y, 0f);
+        }
+
+    }
+
+    void OnDrawGizmos(){
+        if(target != null){
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(target.position, 5f);
+            Gizmos.DrawWireSphere(monsterTransform.position, _radius);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(destinationPos, 2f);
+            //Debug.DrawRay(tentacleEnd.position, direction, Color.red, 0.1f, false);
         }
         
-        x = radius * Mathf.Cos(angle) + destination.position.x;
-        y = radius * Mathf.Sin(angle) + destination.position.y;
+    }
 
-        transform.postion = Vector3.Lerp(transform.position, new Vector3(x, y, 0f), Time.deltaTime);*/
+    public void Kick(float kick){
+        tentacleRB.AddForce((tentacleEnd.position - (tentacleEnd.forward)) * kick);
     }
 }

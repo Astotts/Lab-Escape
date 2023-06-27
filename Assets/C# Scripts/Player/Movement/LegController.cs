@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tentacle : MonoBehaviour
+public class LegController : MonoBehaviour
 {
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] private Transform[] tentacleSegPos;
+    [SerializeField] private Transform monsterTransform;
     [SerializeField] private Vector3[] lineSegPos;
 
     [SerializeField] private Rigidbody2D tentacleRB;
@@ -31,9 +32,9 @@ public class Tentacle : MonoBehaviour
     {
         if(GameManager.active){
             tentacleRB.bodyType = RigidbodyType2D.Static;
-            tentacleSegPos[0].position = this.transform.parent.parent.position; //Set origin point of tentacle line
+            tentacleSegPos[0].position = monsterTransform.position; //Set origin point of tentacle line
         
-            float distance = Vector2.Distance(this.transform.parent.parent.position, tentacleSegPos[tentacleSegPos.Length - 1].position);
+            float distance = Vector2.Distance(monsterTransform.position, tentacleSegPos[tentacleSegPos.Length - 1].position);
 
             if(moving || distance <= minRadius || distance >= maxRadius){ //If the end of the tentacle is within the minradius or exceeding maxradius
                 moving = true;
@@ -64,8 +65,8 @@ public class Tentacle : MonoBehaviour
 
     void OnDrawGizmos(){
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(this.transform.parent.parent.position, minRadius);
+        Gizmos.DrawWireSphere(monsterTransform.position, minRadius);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.parent.parent.position, maxRadius);
+        Gizmos.DrawWireSphere(monsterTransform.position, maxRadius);
     }
 }

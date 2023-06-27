@@ -7,7 +7,7 @@ using TMPro;
 public class ComboManager : MonoBehaviour
 {
     private const float defaultTimeToKill = 10f;
-    private float timeToKill = 10f;
+    private float timeToKill = 0f;
     private int combo = 0;
     private int killForCombo = 1;
     private int killCount = 0;
@@ -16,10 +16,12 @@ public class ComboManager : MonoBehaviour
     [SerializeField] private TMP_Text comboTxt;
 
     private void Update(){
-        timeToKill -= Time.deltaTime;
-        timeToKill = Mathf.Clamp(timeToKill, 0f, defaultTimeToKill);
-        slider.value = timeToKill;
-        if(timeToKill <= 0f){
+        if(killCount > 0){
+            timeToKill -= Time.deltaTime;
+            timeToKill = Mathf.Clamp(timeToKill, 0f, defaultTimeToKill);
+            slider.value = timeToKill;
+        }
+        if(timeToKill < 0f){
             ComboEnd();
         }
     }

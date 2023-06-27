@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length < 4)
         {
-            Instantiate(scientistPrefab, new Vector3(Random.Range(-4f, 4f), Random.Range(-1.75f, 1.75f), 0f), new Quaternion(0f, 0f, 0f, 0f));
+            Instantiate(scientistPrefab, new Vector3(Random.Range(-4f, 4f), Random.Range(-1.75f, 0f), 0f), new Quaternion(0f, 0f, 0f, 0f));
         }
     }
 }
