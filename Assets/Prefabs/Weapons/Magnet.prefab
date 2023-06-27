@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3984316700679191369
 SpriteRenderer:
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5895815141918266658, guid: 40ee4875783dd994ea5cabd645dd8d39, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.8584906, g: 0, b: 0.6798798, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,11 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794cace4780bd874588bcb95eb805222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 250
   level: 1
   gravityRange: 5
   forceSpeed: 10
-  cost: 250
   gravityMaxDuration: 10
   gravityStartTime: 7
   gravityTime: 0
@@ -154,5 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa9c4abb27382845872b11f496aab0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
   weaponLevel: 1
