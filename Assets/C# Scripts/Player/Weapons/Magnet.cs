@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Magnet : GenericWeapon
+public class Magnet : MonoBehaviour
 {
     public int level;
 
     public int gravityRange = 5;
     public float forceSpeed = 10f;
-    public int cost = 250;
 
     public float gravityMaxDuration = 10f;
     public float gravityStartTime = 7f;
@@ -51,7 +50,6 @@ public class Magnet : GenericWeapon
         if (level != weaponlevel)
         {
             level = weaponlevel;
-            cost *= level;
         }
 
         //Here for reset

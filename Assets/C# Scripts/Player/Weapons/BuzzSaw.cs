@@ -2,22 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuzzSaw : GenericWeapon
+public class BuzzSaw : MonoBehaviour
 {
     public int level;
     public int damage = 2;
-    
 
     public float maxCD = 1f;
     public float attackCD = 0f;
 
-    [SerializeField] private WeaponController weaponController;
-
     public List<GameObject> enemyList = new List<GameObject>();
-
-    void Awake(){
-        enemyList = new List<GameObject>();
-    }
 
     void Update()
     {
@@ -52,10 +45,8 @@ public class BuzzSaw : GenericWeapon
             {
                 enemyList.Remove(enemy.gameObject);
             }
-            else{
-                enemy.GetComponent<DamageController>().TakeDamage(damage);
-                Debug.Log("BuzzSaw has damaged the Enemy");
-            } 
+            enemy.GetComponent<EnemyData>().TakeDamage(damage);
+            Debug.Log("BuzzSaw has damaged the Enemy");
         }
     }
 
@@ -66,7 +57,6 @@ public class BuzzSaw : GenericWeapon
         if (level != weaponlevel)
         {
             level = weaponlevel;
-            cost *= level;
         }
 
         //Here for reset

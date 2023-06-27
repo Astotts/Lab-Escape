@@ -28,7 +28,7 @@ public class ProjectilePierce : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            col.GetComponent<DamageController>().TakeDamage(damage);
+            col.GetComponent<EnemyData>().TakeDamage(damage);
 
             Debug.Log( this.name + " has damaged the Enemy");
         }

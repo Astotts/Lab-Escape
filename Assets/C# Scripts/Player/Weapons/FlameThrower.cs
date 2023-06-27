@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlameThrower : GenericWeapon
+public class FlameThrower : MonoBehaviour
 {
     public int level;
     public int damage = 1;
-    public int cost = 250;
 
     public float maxCD = 0.5f;
     public float attackCD = 0f;
@@ -48,7 +47,7 @@ public class FlameThrower : GenericWeapon
             }
             if(enemy != null)
             {
-                enemy.GetComponent<DamageController>().TakeDamage(damage);
+                enemy.GetComponent<EnemyData>().TakeDamage(damage);
                 Debug.Log("Flamethrower has damaged the Enemy");
             }
         }
@@ -61,7 +60,6 @@ public class FlameThrower : GenericWeapon
         if (level != weaponlevel)
         {
             level = weaponlevel;
-            cost *= level;
         }
 
         //Here for reset
