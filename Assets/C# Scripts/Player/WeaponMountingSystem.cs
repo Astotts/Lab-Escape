@@ -22,7 +22,7 @@ public class WeaponMountingSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < costTexts.Length; i++){
+        for(int i = 0; i < costTexts.Length - 1; i++){
             weaponTexts[i].text = "Upgrade";
             costTexts[i].text = "0";
         }

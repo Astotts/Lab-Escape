@@ -115,6 +115,27 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
     spritePosition: {x: 5, y: 6}
+  - name: spike_ball_launcher_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 425
+      y: 135
+      width: 97
+      height: 80
+    spriteID: 5617d60b2316c8648892e5138089dad6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 425, y: 135}
+    spritePosition: {x: 0, y: 0}
   characterData:
     bones: []
     parts: []
