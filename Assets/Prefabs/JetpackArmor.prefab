@@ -473,7 +473,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!82 &962807475587155260
 AudioSource:
@@ -630,13 +630,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 4
   maxHealth: 4
-  death: {fileID: 8300000, guid: 06653354138f9f04db4a36bc03596c46, type: 3}
+  death: {fileID: 8300000, guid: aad842a0f2265094ca97aaba9f6de076, type: 3}
   enemyAudio: {fileID: 962807475587155260}
   mainCollider: {fileID: 736540759713147420}
   rbEnemy: {fileID: 4338704693854389761}
   moveSpeed: 3
   bulletPrefab: {fileID: 2210594259994846167, guid: 635eb4c7b7e9f7849b395aaf65b1589c, type: 3}
-  shootSound: {fileID: 8300000, guid: b6c306a2af939df43ab232d231eadbf6, type: 3}
+  shootSound: {fileID: 8300000, guid: 044654fe74fb2db428016b8d50e9d2de, type: 3}
 --- !u!61 &6087455205593865226
 BoxCollider2D:
   m_ObjectHideFlags: 0

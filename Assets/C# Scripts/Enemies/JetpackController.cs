@@ -16,6 +16,8 @@ public class JetpackController : DamageController
 
     [SerializeField] private GameObject bulletPrefab;
 
+
+    private GameObject target;
     public AudioClip shootSound;
 
 
@@ -51,18 +53,26 @@ public class JetpackController : DamageController
 
             // Attack target
 
-            if (isShooting == false) //Add conditions that require the tentacle to have lined up the shot towards an enemy
+            if (target)
             {
-                enemyAudio.PlayOneShot(shootSound, 0.1f);
-                isShooting = true;
-                attackCooldown = Time.time + attackLength + Random.Range(0f, 0.1f);
-                Instantiate(bulletPrefab, transform.position, transform.rotation);
+                if (isShooting == false) //Add conditions that require the tentacle to have lined up the shot towards an enemy
+                {
+                    enemyAudio.PlayOneShot(shootSound, 0.1f);
+                    isShooting = true;
+                    attackCooldown = Time.time + attackLength + Random.Range(0f, 0.1f);
+                    Instantiate(bulletPrefab, transform.position, Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(transform.position.y - target.transform.position.y, transform.position.x - target.transform.position.x) * Mathf.Rad2Deg)));
+                }
+
+                else if (isShooting == true && attackCooldown < Time.time)
+                {
+                    isShooting = false;
+                }
+            }
+            else
+            {
+                target = GameObject.FindWithTag("Player");
             }
 
-            else if (isShooting == true && attackCooldown < Time.time)
-            {
-                isShooting = false;
-            }
 
 
         }
@@ -72,6 +82,7 @@ public class JetpackController : DamageController
             deathTriggered = true;
             rbEnemy.freezeRotation = false;
             rbEnemy.gravityScale = 1f;
+            transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
             rbEnemy.AddTorque(3f, ForceMode2D.Impulse);
 
         }

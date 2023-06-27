@@ -611,11 +611,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 4
   maxHealth: 4
-  death: {fileID: 8300000, guid: 06653354138f9f04db4a36bc03596c46, type: 3}
+  death: {fileID: 8300000, guid: aad842a0f2265094ca97aaba9f6de076, type: 3}
   enemyAudio: {fileID: 1958762109129374986}
   mainCollider: {fileID: 4132336140029499058}
   rbEnemy: {fileID: -7775902541455183874}
   moveSpeed: 3
+  bulletPrefab: {fileID: 2210594259994846167, guid: 635eb4c7b7e9f7849b395aaf65b1589c, type: 3}
+  shootSound: {fileID: 8300000, guid: 044654fe74fb2db428016b8d50e9d2de, type: 3}
 --- !u!82 &1958762109129374986
 AudioSource:
   m_ObjectHideFlags: 0

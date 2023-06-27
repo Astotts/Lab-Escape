@@ -15,6 +15,7 @@ public class BulletController : MonoBehaviour
     public AudioClip smallHit;
 
 
+
     public void Start()
     {
         startTime = Time.time;
@@ -41,10 +42,9 @@ public class BulletController : MonoBehaviour
     {
         if ((tag == "Player" && touched.tag == "Enemy") || (tag == "Enemy" && touched.tag == "Player") && hitSomething == false)
         {
-            
+            hitSomething = true;
             touched.gameObject.GetComponent<DamageController>().TakeDamage(damageOutput);
             animator.SetTrigger("hitSomething");
-            hitSomething = true;
             hitSound.PlayOneShot(smallHit, 0.7f);
             Destroy(gameObject, 0.50f);
         }

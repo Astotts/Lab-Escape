@@ -8,7 +8,18 @@ public class GroundController : DamageController
     [SerializeField] private Collider2D mainCollider;
     [SerializeField] private Rigidbody2D rbEnemy;
     private bool deathTriggered = false;
-    public float moveSpeed = 1f;
+    public float moveSpeed = 2f;
+
+    private float attackLength = 0.8f;
+    private bool isShooting = false;
+    private float attackCooldown = float.MaxValue;
+
+    [SerializeField] private GameObject bulletPrefab;
+
+
+    private GameObject target;
+    public AudioClip shootSound;
+
 
     void Start()
     {
@@ -23,6 +34,7 @@ public class GroundController : DamageController
         if (health > 0)
         {
 
+            // Movement
 
             if (transform.position.x < -6)
             {
@@ -38,6 +50,30 @@ public class GroundController : DamageController
             rbEnemy.velocity = -transform.right * moveSpeed;
 
 
+            // Attack target
+
+            if (target)
+            {
+                if (isShooting == false) //Add conditions that require the tentacle to have lined up the shot towards an enemy
+                {
+                    enemyAudio.PlayOneShot(shootSound, 0.1f);
+                    isShooting = true;
+                    attackCooldown = Time.time + attackLength + Random.Range(0f, 0.1f);
+                    Instantiate(bulletPrefab, transform.position, Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(transform.position.y - target.transform.position.y, transform.position.x - target.transform.position.x) * Mathf.Rad2Deg)));
+                }
+
+                else if (isShooting == true && attackCooldown < Time.time)
+                {
+                    isShooting = false;
+                }
+            }
+            else
+            {
+                target = GameObject.FindWithTag("Player");
+            }
+
+
+
         }
         else if (health <= 0 && deathTriggered != true)
         {
@@ -45,10 +81,14 @@ public class GroundController : DamageController
 
             deathTriggered = true;
             rbEnemy.freezeRotation = false;
+            transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
             rbEnemy.AddTorque(3f, ForceMode2D.Impulse);
-
 
         }
 
+
     }
+
+
 }
+
