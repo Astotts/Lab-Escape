@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileLauncher : GenericWeapon
+public class ProjectileLauncher : MonoBehaviour
 {
     public int level;
 
     public float maxCD = 4f;
     public float attackCD = 0f;
-    public int cost = 250;
 
     public GameObject proj1;
     public GameObject proj2;
@@ -57,7 +56,6 @@ public class ProjectileLauncher : GenericWeapon
         if (level != weaponlevel)
         {
             level = weaponlevel;
-            cost *= level;
         }
 
         //Here for reset
