@@ -8,7 +8,6 @@ public class ProjectileLauncher : GenericWeapon
 
     public float maxCD = 4f;
     public float attackCD = 0f;
-    public int cost = 250;
 
     public GameObject proj1;
     public GameObject proj2;
@@ -45,7 +44,7 @@ public class ProjectileLauncher : GenericWeapon
         //==================================================================
         //Edit so that the velocity is directed to the targeted enemy's
         //location
-        projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(xForce, yForce, 0);
+        projectile.GetComponent<Rigidbody2D>().velocity = transform.right * 10;
         //
         //==================================================================
     }

@@ -8,7 +8,6 @@ public class Magnet : GenericWeapon
 
     public int gravityRange = 5;
     public float forceSpeed = 10f;
-    public int cost = 250;
 
     public float gravityMaxDuration = 10f;
     public float gravityStartTime = 7f;

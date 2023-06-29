@@ -21,6 +21,7 @@ public class WeaponController : MonoBehaviour
 
     public void upgradeWeapon(int buy)
     {
+        weaponLevel++;
         //Set weaponType to a value depending on the weapon upgraded
 
         switch(buy){

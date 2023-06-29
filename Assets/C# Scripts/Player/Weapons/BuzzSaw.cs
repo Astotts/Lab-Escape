@@ -7,7 +7,6 @@ public class BuzzSaw : GenericWeapon
     public int level;
     public int damage = 2;
     
-
     public float maxCD = 1f;
     public float attackCD = 0f;
 
@@ -62,7 +61,7 @@ public class BuzzSaw : GenericWeapon
             else{
                 Debug.Log(enemy.GetComponent<DamageController>());
                 enemy.GetComponent<DamageController>().TakeDamage(damage);
-                Debug.Log("BuzzSaw has damaged the Enemy");
+                //Debug.Log("BuzzSaw has damaged the Enemy");
             } 
         }
     }

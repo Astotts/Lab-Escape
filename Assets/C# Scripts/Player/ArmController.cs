@@ -8,9 +8,10 @@ public class ArmController : MonoBehaviour
     private BoxCollider2D mainCollider;
     [SerializeField] private Rigidbody2D tentacleRB;
     private Transform armPos;
+    public GenericWeapon weapon;
 
     //Targeting
-    private Transform target;
+    public Transform target;
 
     // Tuning variables
     private Vector2 direction;
@@ -46,11 +47,10 @@ public class ArmController : MonoBehaviour
             }
             else if(target != null){//Extend to attack     
                 //snaps the end of the tentacle to the edge of an imaginary circle with a specified radius
-                //Debug.Log("Extending");
-                direction = this.transform.position - target.position;
-                direction.Normalize();
-                rotateAmount = Vector3.Cross(direction, tentacleEnd.up).z;
-                tentacleRB.angularVelocity = -rotateAmount * rotateSpeed;
+                Vector3 look = tentacleEnd.InverseTransformPoint(target.transform.position);
+                float angle = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg;
+            
+                tentacleEnd.Rotate(0, 0, angle);
                 if(elapsed < 1f){ 
                     elapsed += moveSpeed * Time.deltaTime / 10f;
                     _radius = Mathf.Lerp(_radius, maxRadius, elapsed);
@@ -58,9 +58,6 @@ public class ArmController : MonoBehaviour
                 _radius = Mathf.Clamp(_radius, minRadius, maxRadius);
                 RotateAround(10f);
             }    
-            else if(target == null){
-                target = GameObject.FindWithTag("Enemy").transform; 
-            }
         }
         else{
             tentacleRB.gravityScale = 1f;
@@ -102,9 +99,5 @@ public class ArmController : MonoBehaviour
             //Debug.DrawRay(tentacleEnd.position, direction, Color.red, 0.1f, false);
         }
         
-    }
-
-    public void Kick(float kick){
-        tentacleRB.AddForce((tentacleEnd.position - (tentacleEnd.forward)) * kick);
     }
 }

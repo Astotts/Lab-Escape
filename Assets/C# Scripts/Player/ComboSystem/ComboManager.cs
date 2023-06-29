@@ -38,8 +38,8 @@ public class ComboManager : MonoBehaviour
     public void ComboKill(){
         killCount++;
         if(killCount >= killForCombo){
-            killForCombo *= 2;
-            Debug.Log(killForCombo);
+            killForCombo *= 3;
+            //Debug.Log(killForCombo);
             //ApplyComboBuff()
             killCount = 0;
             combo++;

@@ -6,8 +6,6 @@ public class FlameThrower : GenericWeapon
 {
     public int level;
     public int damage = 1;
-    public int cost = 250;
-
     public float maxCD = 0.5f;
     public float attackCD = 0f;
 
@@ -67,6 +65,7 @@ public class FlameThrower : GenericWeapon
         int weaponlevel = GetComponent<WeaponController>().weaponLevel;
         if (level != weaponlevel)
         {
+            Debug.Log("upgraded");
             level = weaponlevel;
             cost *= level;
         }

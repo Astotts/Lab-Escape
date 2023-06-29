@@ -7,7 +7,6 @@ public class Saw : GenericWeapon
 {
     public int level;
     public int damage = 1;
-    public int cost = 250;
 
     public float maxCD = 1f;
     public float attackCD = 0f;

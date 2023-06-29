@@ -11,6 +11,7 @@ public class MonsterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.transform.position = new Vector3(-1f,this.transform.position.y,0f);
         if(GameManager.active && transform.position.y <= -1f){
             transform.Translate(transform.up * moveSpeed * Time.deltaTime);
             if(transform.position.y <= -7f){

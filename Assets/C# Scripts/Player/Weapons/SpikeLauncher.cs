@@ -32,7 +32,7 @@ public class SpikeLauncher : MonoBehaviour
         //==================================================================
         //Edit so that the velocity is directed to the targeted enemy's
         //location
-        spike.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 10, 0);
+        spike.GetComponent<Rigidbody2D>().velocity = transform.right * 10;
         //
         //==================================================================
     }
